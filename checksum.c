@@ -22,7 +22,8 @@ if (skb_linearize(skb) < 0) {
 	/* Handle error
 }
 
-/* Re-take the TCP header. The linearize may change skb's pointers */
+/* Re-take headers. The linearize may change skb's pointers */
+ip_header = ip_hdr(skb);
 tcp_header = tcp_hdr(skb);
 
 /* Fix TCP header checksum */
